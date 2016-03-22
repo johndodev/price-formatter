@@ -10,7 +10,8 @@
     "authors": [
         {
             "name": "Jonathan Plantey",
-            "email": "jonathan.plantey@gmail.com"
+            "email": "jonathan.plantey@gmail.com",
+            "homepage": "http://www.jonathan-plantey.fr"
         }
     ],
     "require": {
