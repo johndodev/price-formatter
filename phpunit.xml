@@ -1,6 +1,6 @@
 <phpunit bootstrap="vendor/autoload.php" colors="true" verbose="false">
     <testsuites>
-        <testsuite name="MoneyFormatter">
+        <testsuite name="PriceFormatter">
             <directory>php/helpers/tests/units</directory>
             <directory>tests</directory>
         </testsuite>

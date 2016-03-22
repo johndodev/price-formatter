@@ -6,7 +6,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Price formatting
  */
-class MoneyFormatter
+class PriceFormatter
 {
     // sign positions (see below)
     //---------------------------

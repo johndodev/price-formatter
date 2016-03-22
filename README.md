@@ -1,4 +1,4 @@
-MoneyFormatter
+PriceFormatter
 ==============
 
 Display prices in PHP.
@@ -16,21 +16,21 @@ Usage
 Defaut settings are designed for Europeans, but you can change it, see *Default options* chapter.
 
 ```php
-use Johndodev\MoneyFormatter;
+use Johndodev\PriceFormatter;
 
 // create an instance (see __construct chapter)
-$moneyFormatter = new MoneyFormatter();
+$priceFormatter = new PriceFormatter();
 
-echo $moneyFormatter->format(4); 
+echo $priceFormatter->format(4); 
 // display "4 €"
 
-echo $moneyFormatter->format(4, 'USD'); 
+echo $priceFormatter->format(4, 'USD'); 
 // display 4 $
 
-echo $moneyFormatter->format(4, '$'); 
+echo $priceFormatter->format(4, '$'); 
 // display 4 $
 
-echo $moneyFormatter->format(4, 'USD')->symbolBefore()->symbolSep('');
+echo $priceFormatter->format(4, 'USD')->symbolBefore()->symbolSep('');
 // display $4
 ```
 
@@ -39,7 +39,7 @@ echo $moneyFormatter->format(4, 'USD')->symbolBefore()->symbolSep('');
 All methods are chainable: 
 
 ```php
-echo $moneyFormatter->format($numberToFormat, $currency = null)
+echo $priceFormatter->format($numberToFormat, $currency = null)
 
 // remove trailing zeros if necessary: 5.00 output 5 but 5.50 output 5.50)
 ->autoTrailingZeros(true)
@@ -60,7 +60,7 @@ echo $moneyFormatter->format($numberToFormat, $currency = null)
 ->symbolBefore()
 
 // but you can define the position with a variable        
-->symbolPosition(MoneyFormatter::SYMBOL_POSITION_AFTER)
+->symbolPosition(PriceFormatter::SYMBOL_POSITION_AFTER)
 
 // set the thousands separator        
 ->thousandsSep(',')
@@ -76,14 +76,14 @@ echo $moneyFormatter->format($numberToFormat, $currency = null)
 
 You can create as many instances (aka services) as you want with their own defaut options (the next chapter is *Default options*)
 ```php
-MoneyFormatter::__construct($options = [])
+PriceFormatter::__construct($options = [])
 
-$euroFormatter = new MoneyFormatter(['currency' => 'EUR']); 
-$euroFormatter = new MoneyFormatter(['currency' => '€']); 
+$euroFormatter = new PriceFormatter(['currency' => 'EUR']); 
+$euroFormatter = new PriceFormatter(['currency' => '€']); 
 
-$usdFormatter = new MoneyFormatter([
+$usdFormatter = new PriceFormatter([
     'currency' => 'USD',
-    'symbolPosition' => MoneyFormatter::SYMBOL_POSITION_BEFORE,
+    'symbolPosition' => PriceFormatter::SYMBOL_POSITION_BEFORE,
 ]);
 ```
 
@@ -94,12 +94,12 @@ $usdFormatter = new MoneyFormatter([
 You can set all thoses settings per instance, below are default values:
 
 ```php
-$moneyFormatter = new MoneyFormatter([
+$priceFormatter = new PriceFormatter([
     'currency'          => 'EUR',
     'decimals'          => 2,
     'decSep'            => '.',
     'thousandsSep'      => '',
-    'symbolPosition'    => MoneyFormatter::SYMBOL_POSITION_AFTER,
+    'symbolPosition'    => PriceFormatter::SYMBOL_POSITION_AFTER,
     'symbolSep'         => ' ',
     'unbreakable'       => true,
     'trimTrailingZeros' => false,
@@ -110,16 +110,16 @@ Example:
 
 ```php
 // no spaces between currency and value
-$moneyFormatter = new MoneyFormatter(['symbolSep' => '']);
+$priceFormatter = new PriceFormatter(['symbolSep' => '']);
 
 // display 5€
-echo $moneyFormatter->format(5); 
+echo $priceFormatter->format(5); 
 
 // but all options can be overriden for one format()
-echo $moneyFormatter->format(5)->symbolSep(' ');
+echo $priceFormatter->format(5)->symbolSep(' ');
 // display 5 €
 
-echo $moneyFormatter->format(5); 
+echo $priceFormatter->format(5); 
 // then display 5€ again
 ```
 
@@ -131,12 +131,12 @@ If you want to format an unsupported currency, use the Symbol (http://www.xe.com
 
 ```php
 // 5 ฿
-echo $moneyFormatter->format(5, '฿'); 
+echo $priceFormatter->format(5, '฿'); 
 ```
 
 ## Run tests
 
 ```
 > composer install
-> php vendor/bin/phpunit --testsuite MoneyFormatter
+> php vendor/bin/phpunit --testsuite PriceFormatter
 ```
