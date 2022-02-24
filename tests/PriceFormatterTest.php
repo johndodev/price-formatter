@@ -2,7 +2,7 @@
 
 use Johndodev\PriceFormatter;
 
-class PriceFormatterTest extends PHPUnit_Framework_TestCase
+class PriceFormatterTest extends \PHPUnit\Framework\TestCase
 {
     public function testsymbolSep()
     {
