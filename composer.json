@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "symfony/options-resolver": "^6.0"
+        "symfony/options-resolver": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
